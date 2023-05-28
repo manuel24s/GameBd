@@ -1,0 +1,50 @@
+{{#if tasks}}
+
+<table class="table table-bordered table-hover table-dark">
+    <thead>
+        <tr>
+            <th>N.</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Genero</th>
+            <th>Año de lanzamiento</th>
+            <th>Acciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        
+    {{#each tasks}}
+    <tr>
+        <td>{{@index}}</td>
+        <td>{{title}}</td>
+        <td>{{description}}</td>
+        <td>{{generos}}</td>
+        <td>{{año}}</td>
+        
+        <td>
+            {{#if done}}
+               <a href="/tasks/{{_id}}/done" class="btn btn-dark">deshacer</a>
+            {{else}}
+               <a href="/tasks/{{_id}}/done" class="btn btn-light btn-sm">hecho</a>
+            {{/if}}
+            <a href="/tasks/{{_id}}/borrar" class="btn btn-light btn-sm">borrar</a>
+            <a href="/tasks/{{_id}}/edit" class="btn btn-light btn-sm">editar</a>
+        </td>
+     </tr>
+
+       
+        {{/each}}
+
+    </tbody>
+   
+</table>
+
+        {{else}}
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="text-center text-dark">
+                    <h1>Game-Archive</h1>
+                    <img src="/icons/game.svg" class="w-75">
+                </div>
+            </div>
+{{/if}}
